@@ -7,6 +7,7 @@ class ShortCodes {
 	public function __construct() {
 		add_shortcode( 'cryptoexchange', [ $this, 'show_exchange_rate_shortcode' ] );
 		add_shortcode( 'cryptoexchange_form', [ $this, 'show_exchange_rate_shortcode_form' ] );
+		//TODO: Will be a good idea to improve the calculation form with a JS based
 		add_shortcode( 'cryptoexchange_ajax_form', [ $this, 'show_exchange_rate_shortcode_ajax_form' ] );
 	}
 

@@ -33,6 +33,7 @@ class CryptoExchanger {
 			}catch (\Exception $e){
 				//Fallback in case of API limit exceeded or another kind of error
 				$rate = get_option($cache_key);
+				set_transient( $cache_key, $rate, COINAPI_CACHE_EXPIRE_TIME );
 
 				//Send mail to be aware of the problem
 				wp_mail('sergio@snieto.com', 'Problem with CoinAPI and '.get_bloginfo('url'), serialize($e));

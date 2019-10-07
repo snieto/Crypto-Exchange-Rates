@@ -27,7 +27,7 @@ class CryptoExchanger {
 		if ( false === $rate ) {
 			try{
 				$exchangeRate = self::$coinAPI->GetExchangeRate( $base, $quote );
-				$rate         = round( $exchangeRate->rate, 2 );
+				$rate         = $exchangeRate->rate;
 				set_transient( $cache_key, $rate, COINAPI_CACHE_EXPIRE_TIME );
 				update_option( $cache_key, $rate );
 			}catch (\Exception $e){

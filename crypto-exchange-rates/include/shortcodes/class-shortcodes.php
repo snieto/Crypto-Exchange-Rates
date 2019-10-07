@@ -57,19 +57,19 @@ class ShortCodes {
 			if ( $verified ) {
 				switch ( $pair ) {
 					case 'btcusd':
-						$result   = round( $qty * $btc_usd_rate, 2 );
+						$result   = number_format_i18n( $qty * $btc_usd_rate, 2 );
 						$currency = '$';
 						break;
 					case 'btceur':
-						$result   = round( $qty * $btc_eur_rate, 2 );
+						$result   = number_format_i18n( $qty * $btc_eur_rate, 2 );
 						$currency = '€';
 						break;
 					case 'usdbtc':
-						$result   = round( $qty / $btc_usd_rate, 2 );
+						$result   = number_format_i18n( $qty / $btc_usd_rate, 2 );
 						$currency = 'BTC';
 						break;
 					case 'eurbtc':
-						$result   = round( $qty / $btc_eur_rate, 2 );
+						$result   = number_format_i18n( $qty / $btc_eur_rate, 2 );
 						$currency = 'BTC';
 						break;
 				}

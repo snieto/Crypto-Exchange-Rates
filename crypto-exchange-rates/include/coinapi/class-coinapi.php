@@ -2,6 +2,7 @@
 
 namespace CryptoExchangeRates\CoinAPI;
 
+//Source code given by CoinAPI.io
 class CoinAPI {
 	var $ApiKey;
 

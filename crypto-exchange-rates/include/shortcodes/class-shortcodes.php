@@ -2,16 +2,20 @@
 
 namespace CryptoExchangeRates\Frontend;
 
+use CryptoExchangeRates\Exchange\CryptoExchanger;
+
 class ShortCodes {
 
 	public function __construct() {
 		add_shortcode( 'cryptoexchange', [ $this, 'show_exchange_rate_shortcode' ] );
 		add_shortcode( 'cryptoexchange_form', [ $this, 'show_exchange_rate_shortcode_form' ] );
-		//TODO: Will be a good idea to improve the calculation form with a JS based
+		//TODO: A good idea is to improve the calculation form with a JS based
 		add_shortcode( 'cryptoexchange_ajax_form', [ $this, 'show_exchange_rate_shortcode_ajax_form' ] );
 	}
 
 	/**
+	 * Simple shortcode to show pair rate values
+	 *
 	 * @param array $atts
 	 * @param null  $content
 	 *
@@ -26,13 +30,15 @@ class ShortCodes {
 			return;
 		}
 
-		$cryptoExchanger = new \CryptoExchangeRates\Exchange\CryptoExchanger( COINAPI_KEY );
+		$cryptoExchanger = new CryptoExchanger( COINAPI_KEY );
 		$rate            = $cryptoExchanger->get_exchange_rate( $base, $quote );
 
 		return '1 ' . $base . ': ' . $rate . ' ' . $quote;
 	}
 
 	/**
+	 * The shortcode that renders the form to make exchange rate calculations
+	 *
 	 * @param array $atts
 	 * @param null  $content
 	 *
@@ -43,7 +49,7 @@ class ShortCodes {
 		$pair     = isset( $_REQUEST['pair'] ) ? sanitize_key( $_REQUEST['pair'] ) : 'btc/usd';
 		$wp_nonce = isset( $_REQUEST['_wpnonce'] ) ? sanitize_key( $_REQUEST['_wpnonce'] ) : '';
 
-		$cryptoExchanger = new \CryptoExchangeRates\Exchange\CryptoExchanger( COINAPI_KEY );
+		$cryptoExchanger = new CryptoExchanger( COINAPI_KEY );
 		$btc_usd_rate    = $cryptoExchanger->get_exchange_rate( 'BTC', 'USD' );
 		$btc_eur_rate    = $cryptoExchanger->get_exchange_rate( 'BTC', 'EUR' );
 

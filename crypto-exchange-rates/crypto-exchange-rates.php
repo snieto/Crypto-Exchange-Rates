@@ -20,7 +20,7 @@ if ( ! defined( 'COINAPI_KEY' ) ) {
 	define( 'COINAPI_KEY', '--REPLACEWITHAVALID_KEY--' );
 }
 define( 'COINAPI_CACHE_EXPIRE_TIME', 864 );
-define( 'COINAPI_CACHE_KEY_PREFIX', 'rate-' );
+define( 'COINAPI_CACHE_KEY_PREFIX', 'cryptoexchange-rate-' );
 define( 'COINAPI_CACHE_GROUP', 'crypto-exchange-rate' );
 
 $slash = DIRECTORY_SEPARATOR;

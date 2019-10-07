@@ -14,6 +14,18 @@ This is a simple plugin that help to get info about BTC pair rates
 This plugin is done for testing. It gets the info from CoinAPI.io using a private API KEY.
 If you want to use this plugin, be sure to get you own valid API KEY.
 
+The strategy is very simple.
+It uses transients for caching the exchange rates values.
+There is a scheduled task that gets the values (BTC/USD and BTC/EUR) every 5 minutes, and these values are cached.
+
+To make the API request uses the class given by CoinAPI.io.
+
+There are two shortcodes:
+- One shows info. Example:  [cryptoexchange base="BTC" quote="USD"]
+- The other renders a form to make exchange calculations [cryptoexchange_form]
+
+
+
 == Installation ==
 
 This section describes how to install the plugin and get it working.

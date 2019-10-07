@@ -24,6 +24,10 @@ There are two shortcodes:
 - One shows info. Example:  [cryptoexchange base="BTC" quote="USD"]
 - The other renders a form to make exchange calculations [cryptoexchange_form]
 
+There is also a widget to show the rate info.
+
+And there is an url to access to the rate in case a JS development with ajax is needed (this is just to show how to make url rewrite in WP):
+/getExchangeRate/BTC/USD/ or /getExchangeRate/BTC/EUR/
 
 
 == Installation ==
